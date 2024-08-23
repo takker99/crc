@@ -1,0 +1,17 @@
+name: ci
+
+on: [push, pull_request]
+
+env:
+  DENO_VERSION: 1.x
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ env.DENO_VERSION }}
+      - name: Check all
+        run: deno task check
