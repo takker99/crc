@@ -49,6 +49,3 @@ by [@101arrowz](https://github.com/101arrowz).
 This project is licensed under the [MIT License](LICENSE).
 
 License for fflate is listed in [LICENSE-fflate](LICENSE-fflate).
-
-```
-```
