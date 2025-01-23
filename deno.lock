@@ -2,13 +2,13 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@std/assert@^1.0.2": "jsr:@std/assert@1.0.10",
+      "jsr:@std/assert@^1.0.2": "jsr:@std/assert@1.0.11",
       "jsr:@std/internal@^1.0.5": "jsr:@std/internal@1.0.5",
       "npm:crc-32@^1.2.2": "npm:crc-32@1.2.2"
     },
     "jsr": {
-      "@std/assert@1.0.10": {
-        "integrity": "59b5cbac5bd55459a19045d95cc7c2ff787b4f8527c0dd195078ff6f9481fbb3",
+      "@std/assert@1.0.11": {
+        "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
         "dependencies": [
           "jsr:@std/internal@^1.0.5"
         ]
