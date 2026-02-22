@@ -3,15 +3,22 @@ name: ci
 on: [push, pull_request]
 
 env:
-  DENO_VERSION: 1.x
+  DENO_VERSION: 2.x
+  DENO_TLS_CA_STORE: system
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v1
+      - uses: actions/checkout@v6
+      - uses: denoland/setup-deno@v2
         with:
           deno-version: ${{ env.DENO_VERSION }}
-      - name: Check all
-        run: deno task check
+      - run: deno task check
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        if: github.event_name == 'push'
+        with:
+          fail_ci_if_error: false # Don't fail CI if Codecov fails
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

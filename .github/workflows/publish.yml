@@ -2,24 +2,23 @@
 name: publish
 
 env:
-  DENO_VERSION: 1.x
+  DENO_VERSION: 2.x
 
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 permissions:
   contents: read
   id-token: write
 
-
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v1
+      - uses: actions/checkout@v6
+      - uses: denoland/setup-deno@v2
         with:
           deno-version: ${{ env.DENO_VERSION }}
       - name: Publish on tag
