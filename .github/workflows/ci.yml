@@ -15,3 +15,10 @@ jobs:
         with:
           deno-version: ${{ env.DENO_VERSION }}
       - run: deno task check
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        if: github.event_name == 'push'
+        with:
+          fail_ci_if_error: false # Don't fail CI if Codecov fails
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
