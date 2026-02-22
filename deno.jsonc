@@ -8,6 +8,7 @@
   },
   "exports": {
     ".": "./mod.ts",
+    "./crc16": "./crc16.ts",
     "./crc32": "./crc32.ts"
   },
   "compilerOptions": {
