@@ -6,17 +6,20 @@
     "@takker/crc": "./mod.ts",
     "crc-32": "npm:crc-32@^1.2.2"
   },
+  "exclude": [
+    "coverage/"
+  ],
   "exports": {
     ".": "./mod.ts",
     "./crc16": "./crc16.ts",
+    "./crc16/ccitt": "./crc16/ccitt.ts",
+    "./crc16/ibm": "./crc16/ibm.ts",
+    "./crc16/modbus": "./crc16/modbus.ts",
     "./crc32": "./crc32.ts"
   },
-  "compilerOptions": {
-    "checkJs": true
-  },
   "tasks": {
-    "fix": "deno fmt && deno lint --fix && deno doc --lint **/*.ts && deno test --doc --parallel --shuffle && deno publish --dry-run --allow-dirty",
-    "check": "deno fmt --check && deno lint && deno doc --lint **/*.ts && deno test --doc --parallel --shuffle && deno publish --dry-run",
+    "fix": "deno fmt && deno lint --fix && deno doc --lint **/*.ts && deno test --doc --parallel --shuffle&& deno publish --dry-run --allow-dirty",
+    "check": "deno fmt --check && deno lint && deno doc --lint **/*.ts && deno test --doc --parallel --shuffle --coverage && deno publish --dry-run",
     // from https://github.com/jsr-core/unknownutil/blob/v4.2.2/deno.jsonc#L84-L85
     "update": "deno run --allow-env --allow-read --allow-write=. --allow-run=git,deno --allow-net=jsr.io,registry.npmjs.org jsr:@molt/cli",
     "update:commit": "deno task -q update --commit --prefix deps: --pre-commit=fix"
