@@ -1,6 +1,7 @@
 # crc
 
 [![JSR](https://jsr.io/badges/@takker/crc)](https://jsr.io/@takker/crc)
+[![codecov](https://codecov.io/gh/takker99/crc/branch/main/graph/badge.svg)](https://codecov.io/gh/takker99/crc)
 [![test](https://github.com/takker99/crc/workflows/ci/badge.svg)](https://github.com/takker99/crc/actions?query=workflow%3Aci)
 
 tiny tree-shakable CRC implementations for Deno/Browser
