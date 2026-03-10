@@ -1,5 +1,9 @@
 name: update
 
+env:
+  DENO_VERSION: 2.x
+  DENO_TLS_CA_STORE: system
+
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -14,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: hasundue/molt-action@v1
+      - uses: denoland/setup-deno@v2
         with:
-          commit-prefix: ":package:"
+          deno-version: ${{ env.DENO_VERSION }}
+          cache: true
+      - name: Update
+        run: deno task update
